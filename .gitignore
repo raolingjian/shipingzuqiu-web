@@ -1,0 +1,45 @@
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# === Output & Media ===
+output/
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+*.ogg
+
+# === Login & Auth ===
+cookies/
+playwright_profile/
+playwright_state.json
+*.db
+*.db-journal
+
+# === Fonts (too large) ===
+fonts/*.ttf
+fonts/*.ttc
+
+# === Materials (cached) ===
+materials/clips/
+materials/audio/
+materials/images/
+
+# === Config (contains secrets) ===
+config.toml
+
+# === OS & IDE ===
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+*.swo

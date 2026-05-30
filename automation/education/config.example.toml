@@ -1,0 +1,28 @@
+[project]
+name = "消防考证培训"
+output_dir = "output"
+font_path = "../fonts/msyh.ttc"
+task_interval_minutes = 1440
+
+[news]
+max_results = 10
+keywords = ["消防证", "消防工程师", "消防设施操作员", "消防知识", "消防安全"]
+
+[llm]
+api_key = "sk-your-api-key-here"
+base_url = "https://api.deepseek.com"
+model = "deepseek-chat"
+
+[tts]
+voice = "zh-CN-YunxiNeural"
+rate = "+0%"
+volume = "+0%"
+enable_ssml = true
+pitch_variation = true
+bgm_enabled = true
+bgm_paths = ["../materials/audio/bgm_ukulele.wav", "../materials/audio/bgm_funny.wav"]
+bgm_volume = -25
+bgm_random = true
+
+[publish]
+headless = false

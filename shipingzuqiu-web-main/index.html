@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>视频创作系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div class="header">
+    <div class="header-title">
+        <span class="icon">🎬</span>
+        视频创作系统
+    </div>
+    <div class="header-status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">连接中...</span>
+    </div>
+</div>
+
+<!-- Tab导航 -->
+<div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('overview')">
+        <span class="tab-icon">📊</span>概览
+    </button>
+    <button class="tab-btn" onclick="switchTab('config')">
+        <span class="tab-icon">⚙️</span>配置
+    </button>
+    <button class="tab-btn" onclick="switchTab('tasks')">
+        <span class="tab-icon">📋</span>任务
+    </button>
+    <button class="tab-btn" onclick="switchTab('videos')">
+        <span class="tab-icon">🎥</span>作品
+    </button>
+</div>
+
+<!-- ==================== 内容区 ==================== -->
+<div class="content">
+
+<!-- 概览面板 -->
+<div id="panel-overview" class="tab-panel active">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-number" id="totalTasks">-</div>
+            <div class="stat-label">总任务数</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="completedTasks">-</div>
+            <div class="stat-label">已完成</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="totalVideos">-</div>
+            <div class="stat-label">视频作品</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="publishedVideos">-</div>
+            <div class="stat-label">已发布</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">🎯 快速操作</div>
+        <button class="btn btn-primary" id="btnFetchNews" onclick="triggerTask('fetch_news')">📰 抓取今日热点</button>
+        <button class="btn btn-success" id="btnGenScript" onclick="triggerTask('generate_script')">✍️ 生成脚本</button>
+        <button class="btn btn-secondary" id="btnMakeVideo" onclick="triggerTask('make_video')">🎬 制作视频</button>
+        <button class="btn btn-primary" id="btnPublish" onclick="triggerTask('publish')">📤 发布到全平台</button>
+        <button class="btn btn-danger" id="btnBatch" onclick="triggerTask('batch')">📦 批量模式 (×3)</button>
+    </div>
+
+    <div class="card">
+        <div class="card-title">📋 最近任务</div>
+        <div id="tasksList">
+            <div style="text-align:center;padding:20px;color:#666;">加载中...</div>
+        </div>
+    </div>
+</div>
+
+<!-- 配置面板 -->
+<div id="panel-config" class="tab-panel">
+    <div style="text-align:center;padding:20px;color:#666;">加载配置中...</div>
+</div>
+
+<!-- 任务面板 -->
+<div id="panel-tasks" class="tab-panel">
+    <div class="card">
+        <div class="card-title">📊 任务统计</div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" id="totalTasks2">-</div>
+                <div class="stat-label">总任务</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="completedTasks2">-</div>
+                <div class="stat-label">已完成</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="failedTasks">-</div>
+                <div class="stat-label">失败</div>
+            </div>
+        </div>
+    </div>
+    <div id="tasksListFull" style="display:block;">
+        <!-- 由 JS 填充 -->
+    </div>
+</div>
+
+<!-- 作品面板 -->
+<div id="panel-videos" class="tab-panel">
+    <div class="card">
+        <div class="card-title">🎥 视频作品</div>
+        <div id="videosList">
+            <div style="text-align:center;padding:20px;color:#666;">加载中...</div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- JS -->
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
