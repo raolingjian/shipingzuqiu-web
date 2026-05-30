@@ -1,0 +1,51 @@
+[project]
+name = "游戏策划转型AI实战"
+output_dir = "output"
+font_path = "../fonts/msyh.ttc"
+
+[news]
+max_results = 10
+keywords = ["AI工具", "AI短视频", "DeepSeek", "Claude", "GPT", "AI自动化", "AI工作流", "Cursor", "AI编程", "AI绘画", "Agent智能体", "AI副业"]
+
+[llm]
+api_key = "sk-your-api-key-here"
+model = "deepseek-chat"
+base_url = "https://api.deepseek.com"
+
+[tts]
+voice = "zh-CN-YunxiNeural"
+rate = "+0%"
+volume = "+0%"
+enable_ssml = true
+pitch_variation = true
+bgm_enabled = true
+bgm_paths = ["../materials/audio/bgm_ukulele.wav", "../materials/audio/bgm_funny.wav"]
+bgm_volume = -25
+bgm_random = true
+# 免费BGM下载地址（运行时自动下载）
+free_bgm_urls = [
+    "https://www.bensound.com/bensound-music/bensound-creativeminds.mp3",
+    "https://www.bensound.com/bensound-music/bensound-moose.mp3",
+    "https://www.bensound.com/bensound-music/bensound-sunny.mp3",
+    "https://www.bensound.com/bensound-music/bensound-tenderness.mp3",
+    "https://www.bensound.com/bensound-music/bensound-ukulele.mp3",
+]
+free_bgm_downloaded = false  # 设为true表示已下载
+
+[account]
+phone = "1XXXXXXXXX"
+channel_name = "我是怎么一步步从游戏转行到AI视频的"
+channel_desc = "38岁游戏策划用AI做副业的真实记录"
+persona = "38岁，上海，游戏策划，正在转型AI方向，用真实项目做教程，接地气，不吹牛"
+
+[publish]
+headless = false
+
+[video]
+# B站视频配置（不受时间限制）
+target_duration = 300          # 目标时长（秒），5分钟
+max_duration = 600             # 最大时长（秒），10分钟
+scenes_count = 15              # 场景数量（10-20个）
+min_words_per_scene = 10       # 每场景最少字数
+max_words_per_scene = 30       # 每场景最多字数
+style = "tutorial"             # 教程风格
